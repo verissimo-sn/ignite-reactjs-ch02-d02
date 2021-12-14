@@ -102,32 +102,4 @@ const Dashboard = () => {
   );
 }
 
-  // async componentDidMount() {
-    
-  // }
-
-  // handleAddFood = async food => {
-    
-  // }
-
-  // handleUpdateFood = async food => {
-    
-  // }
-
-  // handleDeleteFood = async id => {
-   
-  // }
-
-  // toggleModal = () => {
-    
-  // }
-
-  // toggleEditModal = () => {
-    
-  // }
-
-  // handleEditFood = food => {
-
-  // }
-
 export default Dashboard;
