@@ -4,12 +4,17 @@ import {
   useState,
   useCallback,
 } from 'react';
-
 import { useField } from '@unform/core';
 
 import { Container } from './styles';
 
-const Input = ({ name, icon: Icon, ...rest }) => {
+interface InputProps {
+  name: string;
+  icon: JSX.Element;
+  rest: any
+}
+
+const Input = ({ name, icon: Icon, ...rest }: InputProps): JSX.Element => {
   const inputRef = useRef(null);
 
   const [isFocused, setIsFocused] = useState(false);
