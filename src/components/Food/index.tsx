@@ -4,7 +4,7 @@ import { FiEdit3, FiTrash } from 'react-icons/fi';
 import { Container } from './styles';
 import api from '../../services/api';
 
-export interface Food {
+export interface IFood {
   id: number;
   name: string;
   image: string;
@@ -15,8 +15,8 @@ export interface Food {
 
 interface FoodProps {
   handleDelete: (foodId: number) =>  void;
-  handleEditFood: (food: Food) => void;
-  food: Food;
+  handleEditFood: (food: IFood) => void;
+  food: IFood;
 }
 
 const Food = ({ handleDelete, handleEditFood, food }: FoodProps): JSX.Element => {
