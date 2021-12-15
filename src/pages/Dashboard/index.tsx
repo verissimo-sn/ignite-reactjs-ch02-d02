@@ -2,18 +2,18 @@ import { useEffect, useState } from 'react';
 
 import Header from '../../components/Header';
 import api from '../../services/api';
-import Food from '../../components/Food';
+import Food, { IFood as FoodProps } from '../../components/Food';
 import ModalAddFood from '../../components/ModalAddFood';
 import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
 const Dashboard = () => {
-  const [foods, setFoods] = useState([]);
+  const [foods, setFoods] = useState<FoodProps[]>([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [editModalOpen, setEditModalOpen] = useState(false);
-  const [editingFood, setEditingFood] = useState({});
+  const [editingFood, setEditingFood] = useState<FoodProps>({} as FoodProps);
 
-  const handleAddFood = async food => {
+  const handleAddFood = async (food: FoodProps) => {
     try {
       const response = await api.post('/foods', {
         ...food,
@@ -26,7 +26,7 @@ const Dashboard = () => {
     }
   }
 
-  const handleDeleteFood = async id => {
+  const handleDeleteFood = async (id: Number) => {
     await api.delete(`/foods/${id}`);
 
     const foodsFiltered = foods.filter(food => food.id !== id);
@@ -34,7 +34,7 @@ const Dashboard = () => {
     setFoods(foodsFiltered);
   }
 
-  const handleUpdateFood = async food => {
+  const handleUpdateFood = async (food: FoodProps) => {
     try {
       const foodUpdated = await api.put(
         `/foods/${editingFood.id}`,
@@ -51,7 +51,7 @@ const Dashboard = () => {
     }
   }
 
-  const handleEditFood = food => {
+  const handleEditFood = (food: FoodProps) => {
     setEditingFood(food);
     setEditModalOpen(true)
   }
