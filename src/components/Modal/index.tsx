@@ -1,7 +1,13 @@
 import { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
 
-const Modal = ({ children, isOpen, setIsOpen }) => {
+interface ModalProps {
+  children: React.ReactNode;
+  isOpen: boolean;
+  setIsOpen: () => void;
+}
+
+const Modal = ({ children, isOpen, setIsOpen }: ModalProps) => {
   const [modalStatus, setModalStatus] = useState(false);
 
   useEffect(() => {
